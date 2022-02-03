@@ -36,14 +36,9 @@
 #
 # Good Luck!
 
-
-
 winexplorer () { 
 	/mnt/c/Windows/explorer.exe $@
 }
-
-echo $wslworkdir
-echo $wsluserdir
 
 if [[ ! $@ ]]; then
 	declare -x wslworkdir=$( wslpath -w $( pwd ) )

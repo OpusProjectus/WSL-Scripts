@@ -36,8 +36,6 @@
 #
 # Good Luck!
 
-
-
 winexplorer () { 
 	/mnt/c/Windows/explorer.exe $@
 }

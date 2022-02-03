@@ -23,7 +23,7 @@ or
 
     $ explorer.sh /mnt/c/Users
  
-This will launch an instance (a Explorer window) at the working directory you are currently in, or, (if) a directory were supplied.
+This will launch an instance (Open a new Explorer window) at the working directory you are currently in, or, (if) a directory were supplied.
 
 HOW TO USE: \
 If no parameter is given Windows Explorer will simply open up in the directory you are currently in. 

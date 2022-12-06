@@ -41,6 +41,7 @@ It will only show results for files that are:
  2. flagged as executable (doesn't differ from scripts or binaries)
 
 
+- - - - 
 
 ###  **explorer.sh**
 With this script in your user $PATH you can simply use the command:

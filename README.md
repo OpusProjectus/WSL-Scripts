@@ -13,6 +13,34 @@ I make it a priority to ensure these scripts lack any features that can be damag
 **Enjoy**
 
 - - - -
+#### Latest additions #### 
+
+### **pathfind**
+HOW TO USE: \
+A simple script that doesn't use anything other than bash and grep.
+It will look where a command is located with the full path shown, 
+while supporting wildcard on both sides work too, e.g: example below.
+
+# User example #1
+    $ pathfind *top
+    /usr/bin/htop
+    /usr/bin/top
+
+#  User example #2
+    $ pathfind *cry*
+    /usr/bin/decryptdir
+    /usr/bin/crypt
+    /usr/bin/mcrypt
+    /usr/bin/ccencrypt
+    /usr/bin/cryptdir
+    /usr/bin/ccdecrypt
+    /usr/bin/ccrypt
+
+It will only show results for files that are:
+ 1. found with-in your $PATH
+ 2. flagged as executable (doesn't differ from scripts or binaries)
+
+
 
 ###  **explorer.sh**
 With this script in your user $PATH you can simply use the command:

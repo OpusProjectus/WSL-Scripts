@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+test -f /bin/grep || $( echo "I didn't find grep, is it installed?" && kill $$ )
+
+function ip-grep () {
+/bin/grep -w --color -E '((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)' -
+}
+
+function helpinfo () {
+printf %b '--- grep-ip: help and information ---
+You can use it as a command, or, together with your own parameters.
+You can read more about possible parameters supported in grep in the manual.
+(man grep)  '
+}
+
+
+if [[ $# -gt 0 ]]
+then
+	case $1 in
+	-h|--help|-help) helpinfo && exit ;;
+	esac
+
+	declare -x userparam=$( echo "$@" | sed -e 's/-w\|-E//g' )
+	/bin/grep $userparam -E '((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)' -
+else
+	ip-grep
+fi
+
+# declare -x ipregex='^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$'
+# declare -x ipregexalt='^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$'
+#  -Ewon --color 
+
+

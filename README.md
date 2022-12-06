@@ -15,18 +15,20 @@ I make it a priority to ensure these scripts lack any features that can be damag
 - - - -
 #### Latest additions #### 
 
-### **pathfind**
+#### **pathfind**
 HOW TO USE: \
 A simple script that doesn't use anything other than bash and grep.
 It will look where a command is located with the full path shown, 
 while supporting wildcard on both sides work too, e.g: example below.
 
-# User example #1
+# Example output 1:
+
     $ pathfind *top
     /usr/bin/htop
     /usr/bin/top
 
-#  User example #2
+#  Example output 2:
+
     $ pathfind *cry*
     /usr/bin/decryptdir
     /usr/bin/crypt
@@ -42,6 +44,26 @@ It will only show results for files that are:
 
 
 - - - - 
+
+#### **grep-ip** 
+
+Grep-ip added, it's exactly what it sounds like!
+From the help parameter: 
+
+You can use it as a command, or, together with your own parameters.
+You can read more about possible parameters supported in grep in the manual.
+(man grep)  
+
+This means it works as grep (or egrep) and you can add additional parameters, as long as they are supported by grep. 
+It will automatically find and color (if not -o given) all IPv4 addresses found in the stdout. 
+
+# Example output:
+    
+    $ ifconfig | grep-ip -o
+    172.31.92.59
+    255.255.240.0
+
+- - - - -
 
 ###  **explorer.sh**
 With this script in your user $PATH you can simply use the command:

@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+## Uppdaterad 2022 08 30
+## Betatestad
+
+declare -x findfile="$@"
+readarray PATHREFINED < <( printf "%s" "$PATH" | sed 's/:/\n/g' | egrep -v mnt )
+
+# Sök PATH efter exekverbara filer med stöd för asterix
+for i in "${PATHREFINED[@]}"
+do
+	find "$( printf "%s" "$i" )" -name "$findfile" -executable | /bin/grep --color -E "$findfile"
+done
+
+### User example
+#
+# $ pathfind *top
+# /usr/bin/htop
+# /usr/bin/top
+#
+# Wildcard on both sides work too, e.g: *top*
+#
+### 
+
+# trap and cleane
+trap "unset findfiles PATHREFINED; echo Färdig" RETURN
